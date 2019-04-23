@@ -19,7 +19,7 @@ for k=1:length(Files)
     % Generate random number between 5 and 30
     ran = randi([5, 30]);
     % Chekc if outside range
-    if (sot - ran)*fs < 0
+    if sot - ran < 0
        ran = sot; 
     end
     FsAfterSOT = (sot+time)*fs;
@@ -27,7 +27,7 @@ for k=1:length(Files)
     
     % take data from all channels before and after sot
     DataAfterSOT = d(StartPoint:FsAfterSOT,:);
-    DataBeforeSOT = d(FsBeforeSOT:StartPoint,:);
+    DataBeforeSOT = d(FsBeforeSOT:FsBeforeSOT+time*fs,:);
     
     % resutling channels with seizure, according to the give soz
     DataWithSeizure = DataAfterSOT(:,soz); % maybe here iz instead of soz?
