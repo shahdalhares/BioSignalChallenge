@@ -26,7 +26,7 @@ for k=1:length(Files)
     FsBeforeSOT = (sot-ran)*fs;
     
     % take data from all channels before and after sot
-    DataAfterSOT = d(StartPoint:FsAfterSOT,:);
+%     DataAfterSOT = d(StartPoint:FsAfterSOT,:);
     DataBeforeSOT = d(FsBeforeSOT:FsBeforeSOT+time*fs,:);
     
     % resutling channels with seizure, according to the give soz
@@ -34,10 +34,10 @@ for k=1:length(Files)
     
     % write data
     out1 = fullfile(OutFolder, strcat(name, '_before' ,'.mat'));
-    out2 = fullfile(OutFolder, strcat(name, '_after' ,'.mat'));
+%     out2 = fullfile(OutFolder, strcat(name, '_after' ,'.mat'));
     out3 = fullfile(OutFolder, strcat(name, '_seizure' ,'.mat'));
     save(out1, 'DataBeforeSOT');
-    save(out2, 'DataAfterSOT');
+%     save(out2, 'DataAfterSOT');
     save(out3, 'DataWithSeizure');
 end
 
