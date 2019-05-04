@@ -34,6 +34,7 @@ for k=1:length(Files)
     
     % write data
     out1 = fullfile(OutFolder, strcat(name, '_before' ,'.mat'));
+%     we don't need this data
 %     out2 = fullfile(OutFolder, strcat(name, '_after' ,'.mat'));
     out3 = fullfile(OutFolder, strcat(name, '_seizure' ,'.mat'));
     save(out1, 'DataBeforeSOT');
