@@ -3,3 +3,11 @@ Shahd: Zero Crossing, Kurtosis. (Maybe Peaks Detection)
 Chris: Hjorth Mobility, Hjorth Complexity
 
 Mush:
+
+
+Weitere Features, die uns helfen konnten:
+- Peaks Detection
+- Power Spektrum
+- Variance
+- Mean
+- Extreme Values: number of values exceeding a threshold
