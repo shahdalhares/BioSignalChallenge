@@ -25,9 +25,11 @@ for k=1:length(Files)
     FsAfterSOT = (sot+time)*fs;
     FsBeforeSOT = (sot-ran)*fs;
     
+    selected_channels = randi(size(d,2),length(soz),1);
+    
     % take data from all channels before and after sot
-%     DataAfterSOT = d(StartPoint:FsAfterSOT,:);
-    DataBeforeSOT = d(FsBeforeSOT:FsBeforeSOT+time*fs,:);
+    DataAfterSOT = d(StartPoint:FsAfterSOT,:);
+    DataBeforeSOT = d(FsBeforeSOT:FsBeforeSOT+time*fs,selected_channels);
     
     % resutling channels with seizure, according to the give soz
     DataWithSeizure = DataAfterSOT(:,soz); % maybe here iz instead of soz?
