@@ -5,7 +5,7 @@ Chris: Hjorth Mobility, Hjorth Complexity
 Mush:
 
 
-Weitere Features, die uns helfen konnten:
+Weitere Features, die uns helfen könnten:
 - Peaks Detection
 - Power Spektrum
 - Variance
