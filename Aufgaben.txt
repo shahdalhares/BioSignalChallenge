@@ -1,4 +1,4 @@
-Shahd: Zero Crossing, Kurtosis.
+Shahd: Zero Crossing, Kurtosis. (Maybe Peaks Detection)
 
 Chris: Hjorth Mobility, Hjorth Complexity
 
