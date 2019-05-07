@@ -11,3 +11,4 @@ Weitere Features, die uns helfen könnten:
 - Variance
 - Mean
 - Extreme Values: number of values exceeding a threshold
+- Discrete Wavelet Transform (Scalogram)
