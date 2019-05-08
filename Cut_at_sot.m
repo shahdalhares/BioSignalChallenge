@@ -6,10 +6,11 @@ disp("Select Folder with Data");
 DataFolder = uigetdir(pwd);
 Files = dir(fullfile(DataFolder, '*.mat'));
 
-%Select the Output Folder
-disp("Select Output Folder");
-OutFolder = uigetdir(pwd);
-
+% %Select the Output Folder
+% disp("Select Output Folder");
+% OutFolder = uigetdir(pwd);
+CompleteData = [];
+SeizureActivity = [];
 for k=1:length(Files)
     %CurrentFile = Files(k).name;
     CurrentFile = fullfile(Files(k).folder, Files(k).name);
@@ -32,15 +33,17 @@ for k=1:length(Files)
     DataBeforeSOT = d(FsBeforeSOT:FsBeforeSOT+time*fs,selected_channels);
     
     % resutling channels with seizure, according to the give soz
-    DataWithSeizure = DataAfterSOT(:,soz); % maybe here iz instead of soz?
+    DataWithSeizure = DataAfterSOT(:,soz);
+    if fs < 1000
+        QueryPointsAfter = [0:1/1000:time];
+        QueryPointsBefore  = [0:1/fs:time];
+        DataWithSeizure = interp1(QueryPointsBefore, DataWithSeizure, QueryPointsAfter, 'spline');
+        DataBeforeSOT = interp1(QueryPointsBefore, DataBeforeSOT, QueryPointsAfter, 'spline');
+    end
     
-    % write data
-    out1 = fullfile(OutFolder, strcat(name, '_before' ,'.mat'));
-
-%     out2 = fullfile(OutFolder, strcat(name, '_after' ,'.mat'));
-    out3 = fullfile(OutFolder, strcat(name, '_seizure' ,'.mat'));
-    save(out1, 'DataBeforeSOT');
-%     save(out2, 'DataAfterSOT');
-    save(out3, 'DataWithSeizure');
+    CompleteData = [CompleteData,DataWithSeizure,DataBeforeSOT];
+    SeizureActivity = [SeizureActivity, ones(1,size(DataWithSeizure,2)), zeros(1, size(DataBeforeSOT,2))];
 end
+
+CompleteData = [CompleteData;SeizureActivity]';
 
