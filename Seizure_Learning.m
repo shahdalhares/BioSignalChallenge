@@ -16,8 +16,3 @@ TrainData =  table(T_kurtosis',T_ZeroCrossing',T_HjComplex', ...
     'ZeroCrossing','HjComplex','HjMobility','Mean','Stand_Diviation',...
     'PCA'});
 TrainData.SeizureActivity = (CompleteData(:,end));
-
-Complete Data als .mat file
-Cut_at_sot bearbeitet + Kopie vom alten Skript
-Mean, Standard Diviation und PCA hinzugefügt.
-Hauptdatei (Seizure_Learning) hinzugefügt.
