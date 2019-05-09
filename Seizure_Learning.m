@@ -1,3 +1,4 @@
+clear;
 load('CompleteData.mat');
 
 %% Features Calculation

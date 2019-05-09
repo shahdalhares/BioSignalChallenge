@@ -26,7 +26,7 @@ for k=1:length(Files)
     FsAfterSOT = (sot+time)*fs;
     FsBeforeSOT = (sot-ran)*fs;
     
-    selected_channels = randi(size(d,2),length(soz),1);
+    selected_channels = randperm(size(d,2),length(soz));
     
     % take data from all channels before and after sot
     DataAfterSOT = d(StartPoint:FsAfterSOT,:);
