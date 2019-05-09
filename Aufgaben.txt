@@ -2,14 +2,15 @@ Shahd: Zero Crossing, Kurtosis. (Maybe Peaks Detection)
 
 Chris: Hjorth Mobility, Hjorth Complexity
 
-Mush:
+Mush:   - Peaks Detection
+        - Power Spektrum
+        - Extreme Values: number of values exceeding a threshold
+        - Discrete Wavelet Transform (Scalogram)
 
 
 Weitere Features, die uns helfen könnten:
 - Peaks Detection
 - Power Spektrum
-- Variance
-- Mean
 - Extreme Values: number of values exceeding a threshold
 - Discrete Wavelet Transform (Scalogram)
 
@@ -17,3 +18,10 @@ Weitere Features, die uns helfen könnten:
 http://ataspinar.com/2018/12/21/a-guide-for-using-the-wavelet-transform-in-machine-learning/
 
 https://de.mathworks.com/matlabcentral/fileexchange/33721-time-varying-eeg-connectivity-a-time-frequency-approach
+
+
+Fragen an Christoph:
+    - Interpolation?
+    - zwei Modelle (sot + soz)
+    - Bestimmung von SOT, Ideen?
+    - Fragen zu den Features: mean, std, energy, zero crossing, Hjorth, #peaks
