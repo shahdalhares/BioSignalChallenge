@@ -5,7 +5,7 @@ Chris: Hjorth Mobility, Hjorth Complexity
 Mush:
 
 
-Weitere Features, die uns helfen könnten:
+Weitere Features, die uns helfen kÃ¶nnten:
 - Peaks Detection
 - Power Spektrum
 - Variance
@@ -15,3 +15,5 @@ Weitere Features, die uns helfen könnten:
 
 
 http://ataspinar.com/2018/12/21/a-guide-for-using-the-wavelet-transform-in-machine-learning/
+
+https://de.mathworks.com/matlabcentral/fileexchange/33721-time-varying-eeg-connectivity-a-time-frequency-approach
