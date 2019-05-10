@@ -1,5 +1,5 @@
 clear;
-load('CompleteData.mat');
+load('CompleteDataX3.mat');
 tic;
 table_of_levels = DiscreteWaveletTransform(CompleteData);
 toc;

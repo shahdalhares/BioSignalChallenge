@@ -32,4 +32,4 @@ Statistical features like:
     Root Mean Square value; square of the average of the squared amplitude values
     The mean of the derivative
     Zero crossing rate, i.e. the number of times a signal crosses y = 0
-    Mean crossing rate, i.e. the number of times a signal crosses y = mean(y)
+    Mean crossing rate, i.e. the number of times a signal crosses y = mean(y) 
