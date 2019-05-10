@@ -1,13 +1,13 @@
 function Y = HjorthComplexity(X)
 
-n = size(X,2);
+n = size(X,1);
 
-dX = diff([zeros(1,n);X]);
-ddX = diff([zeros(1,n);dX]);
+dX = diff([zeros(n,1),X], [], 2);
+ddX = diff([zeros(n,1),dX], [], 2);
 
-mx2 = mean(X.^2);
-mdx2 = mean(dX.^2);
-mddx2 = mean(ddX.^2);
+mx2 = mean(X.^2, 2);
+mdx2 = mean(dX.^2, 2);
+mddx2 = mean(ddX.^2, 2);
 
 mob = mdx2 ./ mx2;
 Y = sqrt(mddx2 ./ mdx2 - mob);
