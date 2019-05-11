@@ -1,8 +1,7 @@
 clear;
 load('CompleteDataX3.mat');
 tic;
-table_of_levels = DiscreteWaveletTransform(CompleteData);
-toc;
+[table_of_levels, table_of_entropy] = WaveletPacketTransform(CompleteData(:,1:end-1));toc;
 
 %% Features Calculation
 
@@ -27,7 +26,7 @@ toc;
 
 %% Table
 TrainData =  [T_kurtosis,T_ZeroCrossing,T_HjComplex, ...
-    T_HjMobility, T_mean, T_stdv,T_energy];
+    T_HjMobility, T_mean, T_stdv,T_energy, table_of_entropy];
 %     'T_periodogram',...
 %     'T_welch', 'T_burg', 'T_cov', 'T_mcov', 'T_multitaper'});
 TrainData.SeizureActivity = (CompleteData(:,end));
