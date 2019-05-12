@@ -4,10 +4,12 @@ function [sot,soz] = Main_fun2019_new(data)
 
 load('trainedModel_879_SVM');
 frame_length = 5;
+search_time_sot = 10;
 signal_length_sec = size(data.d,1)/data.fs;
 num_channel = size(data.d,2);
 signal_length_fs = size(data.d,1);
-soz= [];
+soz = [];
+sot = [];
 
 if data.fs < 1000
     QueryPointsAfter = [0:1/1000:signal_length_sec];
@@ -33,6 +35,9 @@ for channel_idx = 1 : num_channel
             counter = counter + 1;
             if (counter == 5)
                 soz = [soz, channel_idx];
+                sot_area_center = frame_start - counter * frame_length/2;
+                sot_area = [sot_area_center-search_time_sot*fs,sot_area_center+search_time_sot*fs];
+                sot = [sot,findchangepts(data.d(sot_area(1):sot_area(2),channel_idx),'MaxNumChanges',1,'Statistic','std')];
                 break;
             end
         elseif (activity == 0 && counter > 0)
@@ -40,7 +45,8 @@ for channel_idx = 1 : num_channel
         end
     end
 end
-sot = 120;
+
+sot = median(sot,2);
 
 end
 
