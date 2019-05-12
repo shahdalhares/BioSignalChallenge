@@ -1,7 +1,9 @@
-clear;
-load('CompleteDataX3.mat');
+% clear;
+load('CompleteDataWV.mat');
 tic;
-[table_of_levels, table_of_entropy] = WaveletPacketTransform(CompleteData(:,1:end-1));toc;
+table_of_levels = DiscreteWaveletTransform(CompleteData(:,1:end-1));
+% [table_of_levels, table_of_entropy] = WaveletPacketTransform(CompleteData(:,1:end-1));
+toc;
 
 %% Features Calculation
 
@@ -22,11 +24,14 @@ T_HjMobility = varfun(@HjorthMobility, table_of_levels);
 T_mean = varfun(@Wmean, table_of_levels);
 T_stdv = varfun(@Wstd, table_of_levels);
 T_energy = varfun(@Energy, table_of_levels);
+T_meanAbsDiv = varfun(@MeanAbsoluteDeviation, table_of_levels);
+T_medianAbsDiv = varfun(@MedianAbsoluteDeviation, table_of_levels);
 toc;
 
 %% Table
 TrainData =  [T_kurtosis,T_ZeroCrossing,T_HjComplex, ...
-    T_HjMobility, T_mean, T_stdv,T_energy, table_of_entropy];
+    T_HjMobility, T_mean, T_stdv,T_energy, T_meanAbsDiv, T_medianAbsDiv];
 %     'T_periodogram',...
 %     'T_welch', 'T_burg', 'T_cov', 'T_mcov', 'T_multitaper'});
+TrainData.T_peaks = peakdetection(CompleteData(:,1:end-1));
 TrainData.SeizureActivity = (CompleteData(:,end));

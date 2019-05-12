@@ -2,13 +2,13 @@ function [table_of_levels, table_of_entropy] = WaveletPacketTransform(data)
 %WAVELETPACKETTRANSFORM Summary of this function goes here
 %   Detailed explanation goes here
 channelnumber = length(data(:,1));
-name = 'sym8';
+name = 'db4';
 levels = 3;
 table_of_levels = table;
 table_of_entropy = table;
 vn = {'c30_ent', 'c31_ent', 'c32_ent', 'c33_ent', 'c34_ent', 'c35_ent', 'c36_ent', 'c37_ent'};
 for i = 1:channelnumber
-%     data(i,:) = Bandpass(data(i,:));
+    data(i,:) = Bandpass(data(i,:));
     T = wpdec(data(i,:), levels, name);
     ent = read(T, 'ent', [7:15])';
     for j = 0:7

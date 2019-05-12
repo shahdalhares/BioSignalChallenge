@@ -10,7 +10,7 @@ persistent Hd;
 if isempty(Hd)
     
     N      = 16;    % Order
-    Fpass1 = 5;     % First Passband Frequency
+    Fpass1 = 0.1;     % First Passband Frequency
     Fpass2 = 45;    % Second Passband Frequency
     Apass  = 1;     % Passband Ripple (dB)
     Fs     = 1000;  % Sampling Frequency
